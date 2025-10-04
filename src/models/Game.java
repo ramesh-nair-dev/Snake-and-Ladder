@@ -58,7 +58,9 @@ public class Game {
 
         if (newPosition > totalCells) {
             System.out.println("Roll exceeds board limit. Player stays at position: " + oldPosition);
-            nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
+            if(diceRoll != 6){
+                nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
+            }
             return;
         }
 
@@ -80,7 +82,12 @@ public class Game {
         } else {
             movePlayerToCell(currentPlayer, newPosition);
             System.out.println(currentPlayer.getName() + " moves to position: " + newPosition);
-            nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
+            // if roll = 6 → same player again
+            if (diceRoll == 6) {
+                System.out.println(currentPlayer.getName() + " rolled a 6 and gets another turn!");
+            } else {
+                nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
+            }
         }
 
         // Win check
@@ -107,6 +114,9 @@ public class Game {
         player.setCurrentPosition(newPosition);
     }
 
+    public void display(){
+        this.board.display();
+    }
 
 
     public static Builder getBuilder(){

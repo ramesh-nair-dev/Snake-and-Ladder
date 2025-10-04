@@ -24,4 +24,8 @@ public class GameController {
 
     }
 
+    public void display(Game game){
+        game.display();
+    }
+
 }

@@ -1,9 +1,6 @@
 package strategy;
 
-import models.Board;
-import models.Cell;
-import models.Ladder;
-import models.Snake;
+import models.*;
 
 import java.util.List;
 import java.util.Random;
@@ -25,7 +22,7 @@ public class RandomObstacleAssignmentStrategy implements ObstacleAssignmentStrat
 
             Cell headCell = grid.get(head - 1);
             if (headCell.getObstacle() == null) {
-                headCell.setObstacle(new Snake(head, tail));
+                headCell.setObstacle(new Snake(head, tail, ObstacleType.SNAKE));
                 assignedSnakes++;
             }
         }
@@ -38,7 +35,7 @@ public class RandomObstacleAssignmentStrategy implements ObstacleAssignmentStrat
 
             Cell startCell = grid.get(start - 1);
             if (startCell.getObstacle() == null) {
-                startCell.setObstacle(new Ladder(start, end));
+                startCell.setObstacle(new Ladder(start, end , ObstacleType.LADDER));
                 assignedLadders++;
             }
         }

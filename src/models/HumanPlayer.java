@@ -1,7 +1,7 @@
 package models;
 
 public class HumanPlayer extends Player{
-    HumanPlayer(String name, Symbol symbol , PlayerType type) {
+    public HumanPlayer(String name, Symbol symbol , PlayerType type) {
         super(name,symbol,type);
     }
 
